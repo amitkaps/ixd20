@@ -25,6 +25,8 @@ const spec = {
 // the second option is for the spec
 vegaEmbed('#vis', spec);
 
-
 // For the Second Spec
 vegaEmbed('#vis2', 'bigFilterSpec.json');
+
+// For the third Spec
+vegaEmbed('#vis3', 'filterSpec.json');
