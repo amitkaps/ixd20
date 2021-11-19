@@ -1,0 +1,25 @@
+{
+  "data": { "url": "dataBig.json" },
+  "params": [
+    {
+      "name": "opacityVar",
+      "value": 1,
+      "bind": { "input": "range", "min": 0, "max": 1, "step": 0.1 }
+    },
+    {
+      "name": "yearSelected",
+      "value": "1980",
+      "bind": { "input": "range", "min": 1900, "max": 2000, "step": 10 }
+    }
+  ],
+  "transform": [
+    { "filter": "datum.year == yearSelected" },
+    { "calculate": "datum.sex == 2 ? 'Female' : 'Male'", "as": "gender" }
+  ],
+  "mark": { "type": "bar", "opacity": { "expr": "opacityVar" } },
+  "encoding": {
+    "y": { "aggregate": "sum", "field": "people", "stack": true },
+    "x": { "field": "age" },
+    "color": { "field": "gender", "type": "nominal" }
+  }
+}
